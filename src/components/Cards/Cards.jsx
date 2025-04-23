@@ -60,11 +60,11 @@ const getCardColor = (title) => {
   switch (title) {
     case "Fatalities":
       return { backGround: "linear-gradient(180deg, #C4A3D5   0%,rgb(225, 152, 235)   100%)", boxShadow: "0px 10px 20px 0px #e0c6f5" };
-    case "Total Crashes":
+    case "Crashes":
       return { backGround: "linear-gradient(180deg,rgb(236, 137, 149) 0%,rgb(225, 132, 141) 100%)", boxShadow: "0px 10px 20px 0px #FDC0C7" };
-    case "Serious Injuries":
+    case "Injuries":
       return { backGround: "linear-gradient(180deg,  rgb(252, 202, 116) 0%,  rgb(225, 195, 142) 100%)", boxShadow: "0px 10px 20px 0px #F9D59B" };
-    case "Compensation Cost":
+    case "Compensation":
       return { backGround: "linear-gradient(180deg,rgb(239, 146, 180)  0%,rgb(225, 146, 185)   100%)", boxShadow: "0px 10px 20px 0px rgb(240, 170, 205)"};
     default:
       return { backGround: "linear-gradient(180deg, #bb67ff 0%, #c484f3 100%)", boxShadow: "0px 10px 20px 0px #e0c6f5" };
@@ -76,11 +76,11 @@ const getCardIcon = (title) => {
   switch (title) {
     case "Fatalities":
       return UilHeartbeat
-    case "Total Crashes":
+    case "Crashes":
       return UilHospital
-    case "Serious Injuries":
+    case "Injuries":
       return UilCar
-    case "Compensation Cost":
+    case "Compensation":
       return UilDollarAlt
     default:
       return UilCar
