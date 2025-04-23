@@ -8,12 +8,14 @@ const TopLocationsChart = () => {
   const [error, setError] = useState(null);
   const svgRef = useRef();
   const containerRef = useRef();
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+  
 
   // Fetch data from backend API
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/top_5');
+        const response = await fetch(`${BACKEND_URL}/api/top_5`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -71,7 +73,7 @@ const TopLocationsChart = () => {
     // Set dimensions and margins of canvas
     const margin = { top: 20, right: 30, bottom: 40, left: 150 };
     const containerWidth = containerRef.current.clientWidth;
-    const width = containerWidth - margin.left - margin.right - 10;
+    const width = containerWidth - margin.left - margin.right - 15;
     const height = 280 - margin.top - margin.bottom;
 
     const sortedData = [...data].sort((a, b) => a.count_address - b.count_address);
@@ -98,7 +100,7 @@ const TopLocationsChart = () => {
       .attr('transform', `translate(0,${height})`)
       .call(d3.axisBottom(x).ticks(5))
       .selectAll('text')
-      .style('font-size', '12px');
+      .style('font-size', '10px');
 
     // Add X axis label
     svg.append('text')
@@ -106,13 +108,13 @@ const TopLocationsChart = () => {
       .attr('x', width / 2)
       .attr('y', height + margin.bottom)
       .text('Number of Incidents')
-      .style('font-size', '14px');
+      .style('font-size', '10px');
 
     svg.append('g')
       .call(d3.axisLeft(y))
       .selectAll('.tick text')
       .call(wrapText, margin.left - 10)
-      .style('font-size', '12px')
+      .style('font-size', '10px')
       .style('text-anchor', 'end')
       .attr('dx', '-.8em')
       .attr('dy', '.15em')

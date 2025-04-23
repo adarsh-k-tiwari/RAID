@@ -1,17 +1,16 @@
 
 .Updates{
-    width: 90%;
-    height: 85%;
+    width: 440px;
+    flex: 1;
     background: white;
     border-radius: 0.7rem;
-    padding-top: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 0.5rem;
     gap: 1rem;
     display: flex;
     flex-direction: column;
     font-size: 13px;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 h2 {
@@ -20,7 +19,8 @@ h2 {
 .update{
     display: flex;
     gap: 0.5rem;
-    max-height: 90%;
+    max-height: 80%;
+    width: 420px;
 }
 
 .update>img{

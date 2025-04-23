@@ -91,14 +91,14 @@ function ExpandedCard({ param, setExpanded }) {
         type: "category",
         labels: {
           style: {
-            fontSize: "16px",
+            fontSize: "12px",
             fontWeight: "bold"
           }
         },
         title: {
           text: "Months",
           style: {
-            fontSize: "18px",
+            fontSize: "14px",
             fontWeight: "bold"
           }
         },
@@ -110,11 +110,11 @@ function ExpandedCard({ param, setExpanded }) {
       yaxis : {
         labels: {
           style: {
-            fontSize: "14px",
+            fontSize: "10px",
             fontWeight: "bold"
           }
         },
-        maxWidth: "25px",
+        maxWidth: "12px",
       } 
     },
   };

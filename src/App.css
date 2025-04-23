@@ -33,7 +33,7 @@
   background: var(--glass);
   border-radius: 2rem;
   gap: 16px;
-  grid-template-columns: 15rem auto 40rem;
+  grid-template-columns: 15rem auto 30rem;
   /* overflow: hidden; */
 }
 

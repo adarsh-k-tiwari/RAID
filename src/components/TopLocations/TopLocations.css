@@ -1,14 +1,22 @@
 /* TopLocationsChart.css */
 .chart-container {
     background-color: white;
-    border-radius: 10px;
+    border-radius: 0.7rem;
     padding: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    height: 85%;
-    width: 580px;
-    margin: 20px 0;
+    width: 420px;
   }
   
+  .TopLocations {
+    flex: 1;
+    border-radius: 0.7rem;
+    padding: 1rem;
+    overflow: hidden;
+    height: auto;
+    width: 440px;
+    padding-left: 0px;
+  }
+
   .bar:hover {
     opacity: 0.8;
     cursor: pointer;

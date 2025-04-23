@@ -7,6 +7,7 @@ const Demographic = () => {
   const svgRef = useRef();
   const [data, setData] = useState([]);
   const [view, setView] = useState('death');
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
 
   useEffect(() => {
     setData(DemographicData);
@@ -38,9 +39,9 @@ const Demographic = () => {
     const stackedData = d3.stack().keys(keys)(formatted);
 
     const containerWidth = svgRef.current.clientWidth;
-    const margin = { top: 60, right: 50, bottom: 50, left: 50 },
+    const margin = { top: 50, right: 30, bottom: 50, left: 50 },
       width = containerWidth - margin.left - margin.right,
-      height = 300 - margin.top - margin.bottom;
+      height = 300 - margin.top - margin.bottom - 60;
 
     const svg = d3.select(svgRef.current)
       .attr("width", width + margin.left + margin.right)
@@ -65,7 +66,7 @@ const Demographic = () => {
       .attr('transform', `translate(0, ${height})`)
       .call(d3.axisBottom(x).tickFormat(d3.format('d')))
       .selectAll('text')
-      .attr('transform', 'rotate(-45)')
+      // .attr('transform', 'rotate(-45)')
       .style('text-anchor', 'end');
 
     // Y Axis
@@ -87,18 +88,18 @@ const Demographic = () => {
     // Axis Labels
     svg.append('text')
       .attr('x', width / 2)
-      .attr('y', height + margin.bottom - 5)
+      .attr('y', height + margin.bottom - 20)
       .attr('text-anchor', 'middle')
       .text('Year of Incidents')
-      .style('font-size', '14px');
+      .style('font-size', '10px');
 
     svg.append('text')
       .attr('transform', 'rotate(-90)')
-      .attr('y', -margin.left + 10)
+      .attr('y', -margin.left + 20)
       .attr('x', -height / 2)
       .attr('text-anchor', 'middle')
       .text(view === 'death' ? 'Number of Deaths' : 'Number of Serious Injuries')
-      .style('font-size', '14px');
+      .style('font-size', '10px');
 
     const tooltip = d3.select('#demographic-tooltip');
 
@@ -127,7 +128,7 @@ const Demographic = () => {
       })
       .on('mousemove', (event) => {
         tooltip
-          .style('left', `${event.pageX - 1150}px`)
+          .style('left', `${event.pageX - 800}px`)
           .style('top', `${event.pageY - 100}px`);
       })
       .on('mouseout', () => {
@@ -143,7 +144,7 @@ const Demographic = () => {
       .attr('transform', (d, i) => {
         const row = Math.floor(i / itemsPerRow);
         const col = i % itemsPerRow;
-        return `translate(${col * 120 + 20 }, ${-margin.top + 10 + row * 20})`;
+        return `translate(${col * 120 + 15 }, ${-margin.top + row * 20})`;
       });
 
     legend.append('rect')

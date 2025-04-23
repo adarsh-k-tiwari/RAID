@@ -8,6 +8,7 @@ import Home from "./components/Home/Home";
 import Settings from "./components/Settings/Settings";
 
 function App() {
+
   return (
     <Router>
       <div className="App">

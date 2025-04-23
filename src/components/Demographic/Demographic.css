@@ -1,12 +1,12 @@
 /* Styles for the toggle buttons */
 .demographic-toggle-button {
-  padding: 7px 7px;
-  border-radius: 5rem;
-  font-size: 16px;
-  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 2rem;
+  font-size: 13px;
+  font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
-  gap: 10px;
+  gap: 6px;
 }
 
 .demographic-toggle-button.active {
@@ -25,36 +25,38 @@
 }
 
 .demographic-toggle-button:not(:last-child) {
-  margin-right: 0.5rem;
+  margin-right: 0.4rem;
 }
+
 .justify-center {
   display: flex;
   justify-content: center;
 }
 
 .demographic-container {
-  padding: 1rem;
+  padding-right: 0.6rem;
   background-color: #F8F8F8;
-  border-radius: 10px;
-  /* width: 100%; */
-  max-width: 680px;
-  height: auto;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 540px;
+  height: 100%;
   position: relative;
   overflow: visible;
   box-sizing: border-box;
+  margin-right: 1rem;
 }
 
 .demographic-chart {
-  width: 680px;
-  height: 300px;
+  width: 500px;
+  height: 240px;
 }
 
 .demographic-tooltip {
   position: absolute;
   background-color: #F8F8F8;
   border: 1px solid #ddd;
-  padding: 6px 12px;
-  font-size: 12px;
+  padding: 5px 10px;
+  font-size: 11px;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.2s;
@@ -64,31 +66,31 @@
 }
 
 .legend {
-  font-size: 13px;
-  margin-bottom: 1rem;
+  font-size: 12px;
+  margin-bottom: 0.7rem;
 }
 
 .bar:hover {
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 /* Media query for smaller devices */
 @media screen and (max-width: 768px) {
   .demographic-container {
-    padding: 1rem;
+    padding: 0.7rem;
     max-width: 100%;
   }
 
   .demographic-chart {
-    height: 250px;
+    height: 200px;
   }
 
   .demographic-toggle-button {
-    padding: 8px 14px;
-    font-size: 14px;
+    padding: 6px 10px;
+    font-size: 12px;
   }
 
   .legend {
-    font-size: 11px;
+    font-size: 10px;
   }
 }

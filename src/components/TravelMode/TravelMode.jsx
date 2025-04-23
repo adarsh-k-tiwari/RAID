@@ -6,10 +6,11 @@ const TravelMode = () => {
   const svgRef = useRef();
   const [data, setData] = useState([]);
   const [view, setView] = useState('death');
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL 
 
   // Fetch data from backend API
   useEffect(() => {
-    fetch('/api/travel_mode')
+    fetch(`${BACKEND_URL}/api/travel_mode`)
       .then(res => res.json())
       .then(json => setData(json))
       .catch(err => console.error('Error fetching travel mode data:', err));
@@ -46,9 +47,9 @@ const TravelMode = () => {
       .range(["#FCCA74", "#CBAACB", "#EC8995", "#FFD1BA", "#A03D5D", "#B4E1D7"]);
   
     const containerWidth = svgRef.current.clientWidth;
-    const margin = { top: 30, right: 50, bottom: 30, left: 50 },
+    const margin = { top: 50, right: 30, bottom: 50, left: 50 },
           width = containerWidth - margin.left - margin.right,
-          height = 300 - margin.top - margin.bottom;
+          height = 300 - margin.top - margin.bottom - 60;
   
     const svg = d3.select(svgRef.current)
       .attr("width", width + margin.left + margin.right)
@@ -145,16 +146,16 @@ const TravelMode = () => {
       .attr('dy', '1em')
       .style('text-anchor', 'middle')
       .text(view === 'death' ? 'Number of Deaths' : 'Number of Serious Injuries')
-      .style('font-size', '14px');
+      .style('font-size', '10px');
 
   
     // X axis label
     svg.append('text')
       .attr('x', width / 2)
-      .attr('y', height + margin.bottom)
+      .attr('y', height + 30)
       .attr('text-anchor', 'middle')
       .text('Year of Incidents')
-      .style('font-size', '14px');
+      .style('font-size', '10px');
     
     
     // Legend
@@ -166,7 +167,7 @@ const TravelMode = () => {
       .attr('transform', (d, i) => {
         const row = Math.floor(i / itemsPerRow);
         const col = i % itemsPerRow;
-        return `translate(${col * 110}, ${row * 20 - 30})`;
+        return `translate(${col * 110 - 80}, ${row * 20 - 50})`;
       });
   
     legend.append('rect')

@@ -27,7 +27,7 @@ const Updates = () => {
   // Fetch data from the backend API
   useEffect(() => {
     const fetchUpdatesData = async () => {
-      const url = `https://data.austintexas.gov/resource/dx9v-zd7x.json?$order=published_date DESC&$limit=8`;
+      const url = `https://data.austintexas.gov/resource/dx9v-zd7x.json?$order=published_date DESC&$limit=10`;
       try {
         const response = await fetch(url);
         if (!response.ok) {

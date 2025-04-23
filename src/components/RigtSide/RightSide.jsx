@@ -6,10 +6,10 @@ import "./RightSide.css";
 const RightSide = () => {
   return (
     <div className="RightSide">
-      <div>
+      <div className="Updates">
         <Updates />
       </div>
-      <div>
+      <div className="TopLocations">
         <TopLocations />
       </div>
     </div>

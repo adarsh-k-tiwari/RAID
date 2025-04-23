@@ -6,9 +6,10 @@ const CalendarHeatmap = () => {
   const svgRefCal = useRef();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL 
 
   useEffect(() => {
-    fetch('/api/traffic_accidents')
+    fetch(`${BACKEND_URL}/api/traffic_accidents`)
       .then(res => res.json())
       .then(json => setData(json))
       .catch(err => console.error('Error fetching traffic accident data:', err));
@@ -20,7 +21,7 @@ const CalendarHeatmap = () => {
     // Step 1: Count accidents by year and month
     const counts = d3.rollup(
       data,
-      v => v.length,
+      v => d3.sum(v, d => +d.count),
       d => {
         const date = new Date(d.published_date);
         return `${date.getFullYear()}-${date.getMonth()}`; // e.g., "2025-3"
@@ -37,11 +38,11 @@ const CalendarHeatmap = () => {
     const months = d3.range(0, 12); // 0 = Jan
 
     // SVG layout
-    const margin = { top: 60, right: 120, bottom: 10, left: 60 };
-    const cellSize = 40;
-    const adjustedCellSize = 38;
+    const margin = { top: 50, right: 10, bottom: 20, left: 60 };
+    const cellSize = 28;
+    const adjustedCellSize = 25;
     const width = months.length * cellSize + margin.left + margin.right;
-    const height = years.length * cellSize + margin.top + margin.bottom;
+    const height = years.length * cellSize + margin.top + margin.bottom - 40;
 
     // Color scale
     const maxCount = d3.max(allEntries, d => d.count);
@@ -103,7 +104,7 @@ const CalendarHeatmap = () => {
 
     // Color legend
     const legendWidth = 10;
-    const legendHeight = 320;
+    const legendHeight = 200;
 
     const defs = svg.append("defs");
     const linearGradient = defs.append("linearGradient")
@@ -146,7 +147,7 @@ const CalendarHeatmap = () => {
 
   return (
     <div className="cal-container">
-      <h2 className="text-xl font-semibold mb-4">Monthly Accidents Heatmap</h2>
+      <h2 className="text-xl font-semibold mb-4">Monthly Incidents Heatmap</h2>
       <svg ref={svgRefCal} className="chart-cal"></svg>
     </div>
   );

@@ -10,12 +10,13 @@ const Cards = () => {
   const [cardsData, setCardsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL 
 
   // Fetch card data from the server when the component mounts
   useEffect(() => {
     const fetchCardData = async () => {
       try {
-        const response = await fetch('/api/cards-data');
+        const response = await fetch(`${BACKEND_URL}/api/cards-data`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -64,7 +65,7 @@ const getCardColor = (title) => {
     case "Serious Injuries":
       return { backGround: "linear-gradient(180deg,  rgb(252, 202, 116) 0%,  rgb(225, 195, 142) 100%)", boxShadow: "0px 10px 20px 0px #F9D59B" };
     case "Compensation Cost":
-      return { backGround: "linear-gradient(180deg,rgb(239, 146, 180)  0%,rgb(225, 146, 185)   100%)", boxShadow: "0px 10px 20px 0px rgb(240, 170, 205)" };
+      return { backGround: "linear-gradient(180deg,rgb(239, 146, 180)  0%,rgb(225, 146, 185)   100%)", boxShadow: "0px 10px 20px 0px rgb(240, 170, 205)"};
     default:
       return { backGround: "linear-gradient(180deg, #bb67ff 0%, #c484f3 100%)", boxShadow: "0px 10px 20px 0px #e0c6f5" };
   }
@@ -82,7 +83,7 @@ const getCardIcon = (title) => {
     case "Compensation Cost":
       return UilDollarAlt
     default:
-      return (props) => <div {...props}>📊</div>;
+      return UilCar
   }
 };
 

@@ -62,7 +62,7 @@ export const DemographicData = [
     year: 2021,
   },
   {
-    race: "American Indian or Alaska Native",
+    race: "American Indian",
     deaths: 0,
     serious_injuries: 4,
     year: 2021,
@@ -98,7 +98,7 @@ export const DemographicData = [
     year: 2022,
   },
   {
-    race: "American Indian or Alaska Native",
+    race: "American Indian",
     deaths: 0,
     serious_injuries: 0,
     year: 2022,
@@ -134,7 +134,7 @@ export const DemographicData = [
     year: 2023,
   },
   {
-    race: "American Indian or Alaska Native",
+    race: "American Indian",
     deaths: 0,
     serious_injuries: 1,
     year: 2023,
@@ -170,7 +170,7 @@ export const DemographicData = [
     year: 2024,
   },
   {
-    race: "American Indian or Alaska Native",
+    race: "American Indian",
     deaths: 2,
     serious_injuries: 2,
     year: 2024,
@@ -206,7 +206,7 @@ export const DemographicData = [
     year: 2025,
   },
   {
-    race: "American Indian or Alaska Native",
+    race: "American Indian",
     deaths: 0,
     serious_injuries: 1,
     year: 2025,

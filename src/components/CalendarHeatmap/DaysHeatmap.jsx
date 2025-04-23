@@ -5,9 +5,10 @@ import './DaysHeatmap.css';
 const DaysHeatmap = () => {
   const svgRefDays = useRef();
   const [data, setData] = useState([]);
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL 
 
   useEffect(() => {
-    fetch('/api/traffic_accidents')
+    fetch(`${BACKEND_URL}/api/traffic_accidents`)
       .then(res => res.json())
       .then(json => setData(json))
       .catch(err => console.error('Error fetching traffic accident data:', err));
@@ -18,7 +19,7 @@ const DaysHeatmap = () => {
 
     const counts = d3.rollup(
       data,
-      v => v.length,
+      v => d3.sum(v, d => +d.count),
       d => {
         const date = new Date(d.published_date);
         return `${date.getFullYear()}-${date.getDay()}`;
@@ -35,9 +36,9 @@ const DaysHeatmap = () => {
 
     const dayLabels = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-    const margin = { top: 60, right: 120, bottom: 60, left: 100 };
-    const cellSize = 46;
-    const adjustedCellSize = 42;
+    const margin = { top: 50, right: 10, bottom: 20, left: 120 };
+    const cellSize = 30;
+    const adjustedCellSize = 28;
     const width = years.length * cellSize + margin.left + margin.right;
     const height = days.length * cellSize + margin.top + margin.bottom;
 
@@ -132,7 +133,7 @@ const DaysHeatmap = () => {
 
   return (
     <div className="days-container">
-      <h2 className="text-xl font-semibold mb-4">Accidents by Year & Day of Week</h2>
+      <h2 className="text-xl font-semibold mb-4">Incidents by Year & Day of Week</h2>
       <svg ref={svgRefDays} className="chart-days"></svg>
     </div>
   );
