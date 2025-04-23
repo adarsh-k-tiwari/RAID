@@ -1,0 +1,54 @@
+/* Map Container */
+.map-container {
+  width: 95%;
+  max-width: 100%;
+  height: 800px;
+  /* max-height: 100%; */
+  margin: 15px 0;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: var(--boxShadow);
+  position: relative;
+}
+
+.heading {
+  padding-top: 1.5rem;
+}
+/* Ensuring map takes full space inside container */
+.mapboxgl-map {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+/* Tooltip Styling */
+#tooltip {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  pointer-events: none;
+  display: none;
+  z-index: 100;
+  max-width: 220px;
+  line-height: 1.4;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .map-container {
+    width: 95%;
+    height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-container {
+    width: 100%;
+    height: 400px;
+  }
+}

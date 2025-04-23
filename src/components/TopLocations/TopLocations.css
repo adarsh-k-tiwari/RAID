@@ -1,0 +1,26 @@
+/* TopLocationsChart.css */
+.chart-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    height: 85%;
+    width: 580px;
+    margin: 20px 0;
+  }
+  
+  .bar:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+  
+  h3 {
+    text-align: center;
+    margin-bottom: -15px;
+  }
+.chart-container svg {
+    /* overflow: visible; */
+    max-width: calc(100% -30 px);
+    height:auto;
+  }
+  

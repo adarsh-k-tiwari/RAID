@@ -1,0 +1,23 @@
+.Settings{
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 2em;
+    color: var(--pink);
+}
+
+@media screen and (max-width: 1200px) {
+    .Settings{
+        justify-content:flex-start;
+        margin-top: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px)
+{
+    .Settings{
+        align-items: center;
+    }
+}
